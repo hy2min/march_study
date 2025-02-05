@@ -6,7 +6,6 @@ for i in range(7):
         row.append(n)
         n+=1
     arr.append(row)
-print(arr)
 
 a, b, c = map(int, input().split())
 
