@@ -1,18 +1,11 @@
-arr = [[0]*6 for _ in range(4)]
+arr = []
+len_arr = []
 for i in range(4):
-    numbers = list(map(str, input().split()))
-    arr.append(numbers)
-
-num_arr = [0]*4
-
+    string = input()
+    arr.append(string)
 
 for i in range(4):
-    count = 0
-    for j in range(6):
-        if arr[i][j] != 0:
-            count += 1
-        else:
-            break
-    num_arr[i] = count
+    len_arr.append(len(arr[i]))
 
-print(*num_arr)
+len_arr.sort()
+print(*len_arr)
