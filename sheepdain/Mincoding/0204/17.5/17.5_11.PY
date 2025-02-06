@@ -5,4 +5,3 @@ for i in range(4):
     if beat[i]==1:
         SUM+=data[i]
 print(SUM)
-        
