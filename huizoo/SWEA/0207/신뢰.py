@@ -1,85 +1,54 @@
 T = int(input())
-for tc in range(1, T+1) :
+for tc in range(1, T+1):
     N, *arr = input().split()
-    time_O, time_B, click_O, click_B = 0, 0, 0, 0
+    N = int(N)
+    loc_O, loc_B, t = 1, 1, 0
+    for i in range(1, 2 * N, 2):
+        arr[i] = int(arr[i])
     
-    while True :    # 끝나는 조건 완성해야함
-        front_O = arr.index('O')    # 맨 처음 보이는 O 인덱스
-        front_B = arr.index('B')    # 맨 처음 보이는 B 인덱스
-        if front_O == 0 or front_B == 0 :   # O 혹은 B 인덱스가 0일때
-            time_O += arr[front_O] - 1
-            time_B += arr[front_B] - 1
-            if front_O < front_B :
-                click_O += 1
-            else : 
-                click_B += 1
-        else :
-            if front_O < front_B : 
-                if arr[front_O+1] > arr[front_B+1] : 
-                    time_O += arr[front_O+1] - arr[front_O-1]
-                    time_B += arr[front_O+1] - arr[front_O-1]
-                else : 
-                    
-                    pass
-            else :
-                if arr[front_O+1] < arr[front_B+1] : 
-                    time_O += arr[front_B+1] - arr[front_B-1]
-                    time_B += arr[front_B+1] - arr[front_B-1]
-                else : 
-
-                    pass
-            time_O += arr[front_O] - arr[front_O]
-            time_B += arr[front_B] - arr[front_B]
-        if asdf : 
-            arr[front_O] = None
-        else : 
-            arr[front_B] = None
-            pass
-
+    while arr:  # 배열에 요소가 남아있는 동안 반복
+        temp_t = 0
+        # 각 로봇의 첫 등장 인덱스 저장
+        if 'O' in arr:
+            index_O = arr.index('O')
+        if 'B' in arr:
+            index_B = arr.index('B')
+        robot = arr[0]  # 이번에 움직일 로봇
+        button = arr[1] # 누를 버튼의 위치
         
-             
-            
-                
-    
-
-
-    # arr_O, time_O = [], 0
-    # arr_B, time_B = [], 0
-
-    # # 짝수 인덱스 탐색
-    # for i in range(0, 2*int(N), 2) :
-    #     if arr[i] == 'O' :
-    #         arr_O.append(int(arr[i+1]))
-    #         # cnt_O += 1
-    #     elif arr[i] == 'B' :
-    #         arr_B.append(int(arr[i+1]))
-    #         # cnt_B += 1
-    # # # 이동거리 축적
-    # # for i in range(cnt_O - 1) :
-    # #     time_O += abs(arr_O[i] - arr_O[i + 1])
-    # # for i in range(cnt_B - 1) :
-    # #     time_B += abs(arr_B[i] - arr_B[i + 1])
-    # len_arr_O = len(arr_O)
-    # len_arr_B = len(arr_B)
-    # max_len = max(len_arr_O, len_arr_B) - 1
-    # i = 0
-    # # 시작할때 이동거리가 계산이 안되어 있으므로 직접 추가(비어있을 경우 오류 방지 위해 if문 사용)
-    # if arr_O:
-    #     time_O += arr_O[0]
-    # if arr_B:
-    #     time_B += arr_B[0]
-    # while i <  max_len :
-    #     if arr_O and i <= len(arr_O) :
-    #         if time_O == time_B:
-    #             time_O += 1
-    #         time_O += abs(arr_O[i] - arr_O[i + 1]) + 1
-    #     if arr_B and i <= len(arr_O) :
-    #         time_B += abs(arr_B[i] - arr_B[i + 1]) + 1
-    #     i += 1
-
-    # # # 같은 위치에 버튼이 있으면 기다려야하기 때문에 1 씩 증가
-    # # for button in arr_O :
-    # #     if button in arr_B :
-    # #         cnt_O += 1
-    # #         cnt_B += 1
-    # print(f'#{tc} {max(time_O, time_B)}')
+        if 'O' in arr and 'B' in arr:   # 두 로봇이 모두 남아있을 때
+            if robot == 'O':    # O가 버튼을 누를 차례라면
+                temp_t += abs(button - loc_O)   # 이동거리만큼 시간 추가
+                loc_O = button                  # O는 목표 버튼까지 이동
+                temp_t += 1                     # 버튼 누르는 데 1초 소요
+                # 동시에, B는 temp_t 시간 동안 다음 목표 방향으로 이동
+                next_target = arr[index_B+1]                    # B 목표 버튼 설정
+                if next_target >= loc_B:                        # 목표 버튼 도달하기 직전 혹은 도달했을 때
+                    loc_B = min(loc_B + temp_t, next_target)    # B는 O가 이동한 거리만큼 전진하다가 목표 버튼을 만난다면 그 자리에 멈춰야 하기 때문에 min값으로 할당
+                else:                                           # 목표 버튼이 뒤에 있다면
+                    loc_B = max(loc_B - temp_t, next_target)    # O가 이동한 거리만큼 후진하다가 목표 버튼을 만난다면 그 자리에 멈춰야 하기 때문에 max값으로 할당
+                        
+            elif robot == 'B':  # B가 버튼을 누를 차례라면
+                temp_t += abs(button - loc_B)
+                loc_B = button
+                temp_t += 1
+                next_target = arr[index_O+1]
+                if next_target >= loc_O:
+                    loc_O = min(loc_O + temp_t, next_target)
+                else:
+                    loc_O = max(loc_O - temp_t, next_target)
+                        
+        elif 'B' in arr:    # B만 남았을 때
+            temp_t += abs(button - loc_B) + 1
+            loc_B = button
+        else:               # O만 남았을 때
+            temp_t += abs(button - loc_O) + 1
+            loc_O = button
+        
+        if len(arr) > 2:
+            arr = arr[2:]
+        else:
+            arr = []
+        t += temp_t
+        
+    print(f'#{tc} {t}')
