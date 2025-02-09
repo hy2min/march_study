@@ -1,5 +1,4 @@
-arr=[['G','K','G']]
-arr.append(list(map(int,input().split())))
+arr=[['G','K','G'],list(map(str,input().split()))]
 
 dat=[0] * 100
 

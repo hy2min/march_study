@@ -9,4 +9,4 @@ for i in range(len(str_lst)-4):
 if flag:    
     print('존재')
 else:    
-    print('없음')
+    print('존재하지 않음')

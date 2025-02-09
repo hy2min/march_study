@@ -1,8 +1,9 @@
-arr=list(input())
+up=list(map(int,input().split()))
+down=list(map(int,input().split()))
 
-dat=[0] * 100
+cnt=0
+for i,j in zip(up,down):
+    if i&j :
+        cnt +=1
 
-for i in arr:
-    dat[ord(i)] += 1
-    
-print(chr(dat.index(max(dat))))
+print(f'{cnt}개')

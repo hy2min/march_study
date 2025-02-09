@@ -8,6 +8,6 @@ for i in win:
 
 for i in people:
     if dat[i] ==0:
-        print(f'{i}번 불불합격')    
+        print(f'{i}번 불합격')    
         continue
     print(f'{i}번 합격')
