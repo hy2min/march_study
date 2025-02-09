@@ -19,9 +19,6 @@ for tc in range(1, T+1) :
         # 이동 거리 = 눌러야하는 버튼 위치 - 현재 위치
         move = abs(button - robots[robot]['loc'])
         
-        # 현재 위치에 이동거리만큼 추가
-        robots[robot]['loc'] += move
-        
         # 이전 동작 이후 대기한 시간(=미리 이동한 시간)
         stay = total_time - last_time
 
