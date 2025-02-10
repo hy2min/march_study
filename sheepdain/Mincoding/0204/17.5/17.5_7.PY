@@ -5,6 +5,5 @@ for i in level:
     for j in range(4):
         if levelTable[j][0]<=i<=levelTable[j][1]:
             lev[j]+=1
-    print(lev)
 for i in range(4):
     print(f"lev{i}:{lev[i]}")
