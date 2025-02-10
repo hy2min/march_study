@@ -1,22 +1,59 @@
-oil = input()
+N=int(input())
 
+lst1=list(map(str,input().split()))
+lst1.sort()
 
-def binary_search(st, ed):
-    Max = -1
+ 
+
+M=int(input())
+
+order=[]
+
+def find_book(book_name,time,st,ed):
+    cnt=0
+    time=int(time)
+    if book_name not in lst1:
+        return 'fail'
     while 1:
-        mid = (st + ed) // 2
-
-        if oil[mid] == '#':
-            st = mid + 1
-            Max = mid
-        if oil[mid] != '#':
-            ed = mid - 1
-
-        if st > ed:
+        mid = (st+ed)//2
+        if lst1[mid] == book_name:
+            cnt+=1
+            if cnt>time:
+                return 'fail'
+            else:    
+                return 'pass'
+        if lst1[mid] != book_name:
+                if (ord(book_name[0])>96 and ord(lst1[mid][0])>96) or (ord(book_name[0])<96 and ord(lst1[mid][0])<96):
+                    if ord(book_name[0]) > ord(lst1[mid][0]):
+                        cnt+=1
+                        ed=mid-1
+                    else:
+                        cnt+=1
+                        st=mid+1
+                else:
+                    if ord(book_name[0]) < ord(lst1[mid][0]):
+                        cnt+=1
+                        ed=mid-1
+                    else:
+                        cnt+=1
+                        st=mid+1        
+        if st>ed:
             break
-    return Max+1
+    if cnt>time:
+        return 'fail'
+    else:    
+        return 'pass'
+            
 
 
-answer = binary_search(0, len(oil)-1)
 
-print(f'{answer * 10}%')
+
+for i in range(M):
+    book_name,S=map(str,input().split())
+    order.append([book_name,S])
+
+
+
+for i in range(M):
+    result=find_book(order[i][0],order[i][1],0,len(lst1)-1)
+    print(result)
