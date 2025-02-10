@@ -1,19 +1,6 @@
-st = list(input())
-arr = ['A', 'B', 'C', 'D']
-path = []
-cnt = 0
-def dfs(level, max_level) : 
-    global cnt
-    if level == max_level : 
-        cnt += 1
-        if path == st : 
-            print(f'{cnt}번째')
-            return
-        return
-    for alp in arr : 
-        path.append(alp)
-        dfs(level+1, max_level)
-        path.pop()
+arr = [input() for _ in range(4)]
+long = max(arr, key = lambda x : len(x))
+short = min(arr, key = lambda x : len(x))
 
-dfs(0, 3)
-
+print(f'긴문장:{arr.index(long)}')
+print(f'짧은문장:{arr.index(short)}')
