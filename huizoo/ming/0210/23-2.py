@@ -12,6 +12,8 @@ def dfs(level, max_level):
                 (path[-1] == 'B' and alp == 'T') or
                 (path[-1] == 'T' and alp == 'B')
             ):
+                pass
+            else:
                 path.append(alp)
                 dfs(level+1, max_level)
                 path.pop()
