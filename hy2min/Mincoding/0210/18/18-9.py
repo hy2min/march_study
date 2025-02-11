@@ -6,3 +6,9 @@ apartments = [
     [15,2,6],
 ]
 
+floor_check = [0] * 3
+
+for i in apartments:
+    for floor in floor_check:
+        
+
