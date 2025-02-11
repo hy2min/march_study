@@ -32,11 +32,11 @@ def find_book(book_name,time,st,ed):
                         st=mid+1
                 else:
                     if ord(book_name[0]) < ord(lst1[mid][0]):
-                        cnt+=1
-                        ed=mid-1
+                         cnt+=1
+                         ed=mid-1
                     else:
-                        cnt+=1
-                        st=mid+1        
+                         cnt+=1
+                         st=mid+1        
         if st>ed:
             break
     if cnt>time:

@@ -71,33 +71,33 @@
 # print(Sum)
 
 #위아래좌우 좌표들의 합이 가장 큰 곳의 합과. 좌표값 출력하기
-
-arr=[[1,2,3,4],
-    [1,2,9,4],
-    [1,9,3,9],
-    [1,2,9,4]]
-
-direct_x=[1,-1,0,0]
-direct_y=[0,0,1,-1]
-
-def sum_cross(y,x):
-        sum=0
-        for i in range(4):
-                ny=direct_y[i]+y
-                nx=direct_x[i]+x
-                if ny>3or ny<0 or nx>3 or nx<0:
-                        continue
-                sum+=arr[ny][nx]
-        return sum
-
-max_sum=-21e8
-y=0
-x=0
-for i in range(4):
-        for j in range(4):
-                sum1=sum_cross(i,j)
-                if sum1>max_sum:
-                        max_sum=sum1
-                        y=i
-                        x=j
-print(max_sum,y,x)
+#
+# arr=[[1,2,3,4],
+#     [1,2,9,4],
+#     [1,9,3,9],
+#     [1,2,9,4]]
+#
+# direct_x=[1,-1,0,0]
+# direct_y=[0,0,1,-1]
+#
+# def sum_cross(y,x):
+#         sum=0
+#         for i in range(4):
+#                 ny=direct_y[i]+y
+#                 nx=direct_x[i]+x
+#                 if ny>3or ny<0 or nx>3 or nx<0:
+#                         continue
+#                 sum+=arr[ny][nx]
+#         return sum
+#
+# max_sum=-21e8
+# y=0
+# x=0
+# for i in range(4):
+#         for j in range(4):
+#                 sum1=sum_cross(i,j)
+#                 if sum1>max_sum:
+#                         max_sum=sum1
+#                         y=i
+#                         x=j
+# print(max_sum,y,x)
