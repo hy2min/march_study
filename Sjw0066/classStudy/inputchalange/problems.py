@@ -8,9 +8,8 @@ sys.stdin = open("input.txt", "r")
 # hello
 
 # 1.아래에 정답을 입력하시오
-st=input()
+st= input()
 print(st)
-
 
 # 2.정수형 변수 입력 받고 출력해서 확인해보기
 # N = 45
@@ -21,8 +20,9 @@ print(st)
 # 1 2 3
 
 # 2.아래에 정답을 입력하시오
-N = int(input())
-a,b,c = map(int,input().split())
+N=int(input())
+a,b,c=map(int,input().split())
+
 print(N)
 print(a,b,c)
 # 3.실수형 변수 입력 받고 출력해서 값이 잘 들어갔지 확인해보기
@@ -34,11 +34,11 @@ print(a,b,c)
 # 1.2 2.3 3.4
 
 # 3.아래에 정답을 입력하시오
-F= float(input())
-af,bf,cf=map(float,input().split())
+F=float(input())
+a,b,c= map(float,input().split())
 
 print(F)
-print(af,bf,cf)
+print(a,b,c)
 # 4.한 줄에 있는 공백으로 구분된 단어들을 각각 문자열로 리스트에 저장하고 출력해서 값이 잘 들어갔지 확인해보기
 # lst = ['one', 'two', 'three']
 
@@ -47,7 +47,6 @@ print(af,bf,cf)
 
 # 4.아래에 정답을 입력하시오
 str1=list(map(str,input().split()))
-
 print(*str1)
 
 # 5.한 줄에 있는 공백으로 구분된 숫자들을 각각 숫자로 리스트에 저장하고 출력해서 값이 잘 들어갔지 확인해보기
@@ -59,7 +58,6 @@ print(*str1)
 
 # 5.아래에 정답을 입력하시오
 int1=list(map(int,input().split()))
-
 print(*int1)
 
 
@@ -71,8 +69,9 @@ print(*int1)
 
 # 6.아래에 정답을 입력하시오
 int2=list(map(int,input()))
-print(*int2)
-
+for i in range(4):
+    print(int2[i],end="")
+print()
 # 7.2차원 (N*N) 공백없는 한자리 숫자들을 2차원 arr에 저장하고 출력해서 값이 잘 들어갔지 확인해보기
 # N=4
 # lst=[[1,0,1,1],[1,0,0,1],[0,0,0,1],[1,0,0,0]]
@@ -86,11 +85,11 @@ print(*int2)
 
 # 7.아래에 정답을 입력하시오
 N1=int(input())
-arr=[list(map(int,input())) for _ in range(N1)]
+int3=[list(map(int,input())) for _ in range(N1)]
 
-for i in range(N1):
-    for j in range(N1):
-        print(arr[i][j],end="")
+for i in int3:
+    for j in i:
+        print(j,end="")
     print()
 
 # 8.2차원 (N*N) 정수값을 2차원 arr에 저장하고 출력해서 값이 잘 들어갔지 확인해보기 (N값과 arr값)
@@ -107,9 +106,10 @@ for i in range(N1):
 # 8.아래에 정답을 입력하시오
 N=int(input())
 arr=[list(map(int,input().split())) for _ in range(N)]
-for i in range(N):
-    for j in range(N):
-        print(arr[i][j],end=" ")
+
+for i in arr:
+    for j in i:
+        print(j,end=" ")
     print()
 
 
