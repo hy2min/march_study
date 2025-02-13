@@ -1,24 +1,34 @@
-def abc(n):
-    if path == []:
-        for i in range(n, length):
-            if arr[i] == '(':
-                path.append('(')
-                abc(i)
-                path.pop()
-                pass
-            elif arr[i] == '{':
-                pass
-    elif path[0] == '(':
-        for i in range(n, length):
-
-        pass
-
-    return
+def abc(lst):
+    for char in lst:
+        if char == '(':
+            path.append('(')
+        elif char == '{':
+            path.append('{')
+        elif char == ')':
+            if not path:
+                return 0
+            else:
+                if path[-1] == '(':
+                    path.pop()
+                elif path[-1] == '{':
+                    return 0
+        elif char == '}':
+            if not path:
+                return 0
+            else:
+                if path[-1] == '{':
+                    path.pop()
+                elif path[-1] == '(':
+                    return 0
+    if path:
+        return 0
+    return 1
 
 t = int(input())
 for tc in range(1, t+1):
     arr = list(input())
-    length = len(arr)
     path = []
-    abc(0, arr)
-    print(f'#{tc} ')
+    ans = abc(arr)
+    print(f'#{tc} {ans}')
+
+
