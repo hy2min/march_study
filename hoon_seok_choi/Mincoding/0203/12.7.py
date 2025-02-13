@@ -3,12 +3,7 @@ a = input()
 b = input()
 c = input()
 
-len = 0
 
-for _ in a1 :
-    len += 1
-    if len  > 10 :
-        break
 
 def counting(string, char):
     count = 0

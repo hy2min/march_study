@@ -11,4 +11,5 @@ max_v = max(arr)
 b= arr.index(min_v)
 c= arr.index(max_v)
 
-print(c,b)
+print(c)
+print(b)
