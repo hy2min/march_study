@@ -3,10 +3,9 @@ def abc(n):
         return 1
     for m in road[n]:
         ret = abc(m)
-    if ret:
-        return 1
-    else:
-        return 0
+        if ret:
+            return 1
+    return 0
 
 for tc in range(1, 11):
     t, N = map(int, input().split())
