@@ -1,3 +1,13 @@
+def cross(N, M, A, B):
+    max_total = float('-inf')
+    for i in range(M - N + 1):
+        total = 0
+        for j in range(N):
+            total += A[j] * B[j + i]
+        if max_total < total:
+            max_total = total
+    return max_total
+
 T = int(input())
 for idx in range(T):
     N, M = map(int, input().split())
@@ -5,23 +15,9 @@ for idx in range(T):
     B = list(map(int, input().split()))
 
     if N <= M:
-        max_total = 0
-        for i in range(M - N + 1):
-            arr_B = B[i:i+N]
-            total = 0
-            for j in range(N):
-                total += A[j] * arr_B[j]
-            if max_total < total:
-                max_total = total
-
-    if N > M:
-        max_total = 0
-        for i in range(N - M + 1):
-            arr_A = A[i:i + M]
-            total = 0
-            for j in range(M):
-                total += arr_A[j] * B[j]
-            if max_total < total:
-                max_total = total
+        max_total = cross(N, M, A, B)
+    else:
+        max_total = cross(M, N, B, A)
 
     print(f'#{idx+1} {max_total}')
+
