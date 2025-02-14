@@ -98,6 +98,9 @@ for test in range(4, T + 1):
                 count_T += find_UD(i, j, arr, N)
                 count_T += find_LRC(i, j, arr, N)
                 count_T += find_UDC(i, j, arr, N)
+            if count_T >= 1:
+                break
+
     if count_T >= 1:
         print(f'#{test} YES')
     else:
