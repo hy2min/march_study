@@ -225,6 +225,278 @@
 # used[1]=1
 # dfs(1)
 # print(Min)
+#
+
+
+
+# 인접리스트 무방향 그래프 최소비용
+# name=['A','B','C','D']
+#
+# n,m=map(int,input().split())
+# lst=[[] for _ in range(n)]
+#
+# def dfs(now,Sum):
+#     global Min
+#
+#     if now==3:
+#         if Min>Sum:
+#             Min=Sum
+#         return
+#
+#     for i in lst[now]:
+#         if used[i[0]] == 1:
+#             continue
+#         used[i[0]] = 1
+#         dfs(i[0],Sum+i[1])
+#         used[i[0]] = 0
+#
+# for i in range(m):
+#     used=[0]*n
+#     st,ed,cost = map(int,input().split())
+#     lst[st].append((ed,cost))
+#     lst[ed].append((st,cost))
+#
+# Min=21e8
+# used[0]=1
+# dfs(0,0)
+# print(Min)
+'''
+
+
+
+
+'''
+# 위에서 부터 한칸 씩 내려오면서
+# 숫자 한개씩을 선택합니다,
+# 선택한 숫자들을 모두 더했을 때
+# 합이 20 이상인 경우가 몇가지 인지 출력해 주세요
+
+#
+# arr= [
+#     [4,5,2],
+#     [-2,1,6],
+#     [3,9,-4],
+#     [3,5,2],
+# ]
+# cnt=0
+#
+# def floor(level,Sum):
+#     global cnt
+#
+#     if level == 4 :
+#         if Sum > 20:
+#             cnt+=1
+#         return
+#
+#     for i in range(3):
+#         floor(level+1,Sum+arr[level][i])
+#
+# floor(0,0)
+# print(cnt)
+'''
+
+
+
+
+'''
+# 위에서 부터 한칸 씩 내려오면서
+# 숫자 한개씩을 선택합니다.
+# 계단을 밑으로 내려오면서 이동할 수 있는 범위는
+# 7시방향 6시방향 5시방향 입니다.
+# 선택한 숫자들을 모두 더했을 때
+# 합이 30 이상인 경우가 몇가지 인지 출력해 주세요
+#
+# arr=[[3,5,9,6],
+#      [7,-8,1,6],
+#      [-10,2,3,9],
+#      [5,1,2,8],
+#      [4,7,1,8]]
+#
+# def dfs(level,Sum,now):
+#     global cnt
+#
+#     if level==5:
+#         if Sum>=30:
+#             cnt+=1
+#         return
+#
+#     for i in range(-1,2):
+#         dx=now+i
+#         if dx < 0  or dx >3 :
+#             continue
+#
+#         dfs(level+1,Sum+arr[level+1][dx],dx)
+#
+# cnt=0
+# path=[0]*5
+# for i in range(4):
+#     dfs(1,arr[0][i],i)
+# print(cnt)
+
+# 미로찾기
+# 벽 과 왔던곳 체크하기
+#
+# arr=[
+#     [0,0,0,0],
+#     [1,0,1,0],
+#     [1,0,1,0],
+#     [0,0,0,0],
+# ]
+# visited=[[0]*4 for _ in range(4)]
+# flag=0
+# def dfs(y,x):
+#     global flag
+#
+#     if y==3 and x==3:
+#         flag=1
+#         return
+#
+#     direct_y=[0,0,1,-1]
+#     direct_x=[1,-1,0,0]
+#
+#     for i in range(4):
+#         dy=y+direct_y[i]
+#         dx=x+direct_x[i]
+#         if dy<0 or dy>3 or dx<0 or dx>3: continue
+#         if arr[dy][dx] == 1: continue
+#         if visited[dy][dx] == 1: continue
+#         visited[dy][dx]=1
+#         dfs(dy,dx)
+#
+#         if flag==1:
+#             return
+#
+# visited[0][0] = 1
+# if flag:
+#     print("탈출")
+# else:
+#     print('탈출불가')
+
+# arr=[
+#     [0,0,0,0,0,0],
+#     [1,0,1,0,1,0],
+#     [1,0,1,0,1,0],
+#     [1,0,1,0,1,0],
+#     [0,0,0,0,0,0],
+# ] # N*M
+#
+# visited=[[0]*len(arr[0]) for _ in range(len(arr))]
+# Min=21e8
+# def dfs(y,x,cnt):
+#     global Min
+#
+#     if cnt>Min:
+#         return
+#
+#     if y==2 and x==3:
+#         if Min>cnt:
+#             Min=cnt
+#         return
+#
+#     direct_y=[0,0,1,-1]
+#     direct_x=[1,-1,0,0]
+#
+#     for i in range(4):
+#         dy=direct_y[i]+y
+#         dx=direct_x[i]+x
+#
+#         if dy>len(arr)-1 or dy<0 or dx>len(arr[i])-1 or dx<0:continue
+#         if visited[dy][dx] == 1: continue
+#         if arr[dy][dx] == 1: continue
+#         visited[dy][dx] =1
+#         dfs(dy,dx,cnt+1)
+#         visited[dy][dx] = 0
+#
+# visited[0][0]=1
+# dfs(0,0,0)
+# print(Min)
+#
+# arr=[
+#     [4,8,1],
+#     [9,2,6],
+#     [3,5,7],
+# ]
+#
+# Max=-21e8
+#
+# def dfs(y,x,level,lst):
+#     global Max
+#
+#     for i in range(5):
+#         dy = direct_y[i] + y
+#         dx = direct_x[i] + x
+#         if dy < 0 or dy > 2 or dx < 0 or dx > 2: continue
+#         lst[dy][dx] = (lst[dy][dx] * 7) % 10
+#
+#     if level==2:
+#         Sum=0
+#         for i in range(3):
+#             for j in range(3):
+#                 Sum+=lst[i][j]
+#         if Sum>Max:
+#             Max=Sum
+#         return
+#
+#
+#
+#     for i in range(3):
+#         for j in range(3):
+#
+#             dfs(i,j,level+1,lst)
+#
+#
+#
+# direct_y=[0,0,0,-1,1]
+# direct_x=[-1,0,1,0,0]
+#
+# for i in range(3):
+#     for j in range(3):
+#         dfs(i,j,0,arr)
+#
+# print(Max)
+
+# 개발을 착수한 곳의 위 아래 좌 우 그리고 자기자신의 좌표의 값이
+# *7 한 후 %10 한 값으로 바뀐다고 합니다.
+# 총 3번의 개발 후 3*3 사이즈의 땅의가치를 모두 더했을떄
+# 최대 이익은 몇일까요? (중복가능)
+import copy
+arr=[[4,8,1],[9,2,6],[3,5,7]]
+Max=-21e8
+def digging(y,x):
+    directy=[0,0,-1,1,0]
+    directx=[1,-1,0,0,0]
+    for i in range(5):
+        dy=directy[i]+y
+        dx=directx[i]+x
+        if dy<0 or dx<0 or dy>2 or dx>2: continue
+        arr[dy][dx]=(arr[dy][dx]*7)%10
+
+def getSum():
+    global arr
+    Sum=0
+    for i in range(3):
+        for j in range(3):
+            Sum+=arr[i][j]
+    return Sum
+
+def dfs(level):
+    global arr,Max
+    backup=copy.deepcopy(arr)
+    if level==3:
+        result=getSum()
+        Max=max(result,Max)
+        return
+
+    for i in range(3):
+        for j in range(3):
+            digging(i,j)
+            dfs(level+1)
+            arr=copy.deepcopy(backup)
+
+dfs(0)
+print(Max)
+
+
 
 
 
