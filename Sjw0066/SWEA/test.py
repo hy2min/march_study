@@ -44,35 +44,35 @@ lst=[
 
 # 물을 피할곳은 지도상 몇군데인가? - 16 -
 
-
-direct_x=[0,0,-1,1]
-direct_y=[1,-1,0,0]
-def water_bomb(bomb,y,x):
-    global lst
-    for i in range(4):
-        for j in range(1,bomb+1):
-            ny=y+direct_y[i]*j
-            nx=x+direct_x[i]*j
-            if ny>6 or ny<0 or nx>6 or nx<0:
-                continue
-            if lst[ny][nx] != "_" and lst[ny][nx] != 'O':
-                break
-            if lst[ny][nx] == "_":
-                lst[ny][nx] = "O"
-
-
-for i in range(7):
-    for j in range(7):
-        if lst[i][j] == 'A':
-            water_bomb(5,i,j)
-        elif lst[i][j] == 'B':
-            water_bomb(3,i,j)
-for i in lst:
-    print(i)
-cnt=0
-for i in range(7):
-    for j in range(7):
-        if lst[i][j] == '_':
-            cnt+=1
-
-print(cnt)
+#
+# direct_x=[0,0,-1,1]
+# direct_y=[1,-1,0,0]
+# def water_bomb(bomb,y,x):
+#     global lst
+#     for i in range(4):
+#         for j in range(1,bomb+1):
+#             ny=y+direct_y[i]*j
+#             nx=x+direct_x[i]*j
+#             if ny>6 or ny<0 or nx>6 or nx<0:
+#                 continue
+#             if lst[ny][nx] != "_" and lst[ny][nx] != 'O':
+#                 break
+#             if lst[ny][nx] == "_":
+#                 lst[ny][nx] = "O"
+#
+#
+# for i in range(7):
+#     for j in range(7):
+#         if lst[i][j] == 'A':
+#             water_bomb(5,i,j)
+#         elif lst[i][j] == 'B':
+#             water_bomb(3,i,j)
+# for i in lst:
+#     print(i)
+# cnt=0
+# for i in range(7):
+#     for j in range(7):
+#         if lst[i][j] == '_':
+#             cnt+=1
+#
+# print(cnt)
