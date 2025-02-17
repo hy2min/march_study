@@ -1,25 +1,24 @@
-n = int(input())
+t = int(input())
 switch = list(map(int, input().split()))
 students = int(input())
-
-for _ in range(students):
-    gender, idx = map(int, input().split())
-    idx -= 1
+for i in range(students):
+    gender, n = map(int, input().split())
     if gender == 1:
-        times = 1
-        while True:
-            if times * idx >= n:
-                break
-            if switch[idx*times] == 1:
-                switch[idx*times] = 0
-            else:
-                switch[idx*times] = 1
-            times += 1
+        for i in range(n-1, t, n):
+            switch[i] = 1 - switch[i]
 
-    if gender == 2:
-        gap = 1
-        if switch[idx] == 1:
-            switch[idx] = 0
-        while True:
-            if idx - times < 0 or idx + times >= n or switch[idx - times] != switch[idx + times]:
-                break
+
+    elif gender == 2:
+        idx = n- 1
+        left, right = idx, idx
+
+        while left > 0 and right < t-1 and switch[left-1] == switch[right+1]:
+           left -= 1
+           right += 1
+
+
+        for i in range(left, right + 1):
+            switch[i] = 1- switch[i]
+
+for i in range(0,t,20):
+    print(*switch[i:i+20])
