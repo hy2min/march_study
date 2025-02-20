@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df8a4725-0511-47f5-9e39-2bd3f36b161d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/hy2min/Mincoding/0215/21/21.5-8.py" beforeDir="false" afterPath="$PROJECT_DIR$/hy2min/Mincoding/0215/21/21.5-8.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hy2min/Mincoding/0215/22/22-8.py" beforeDir="false" afterPath="$PROJECT_DIR$/hy2min/Mincoding/0215/22/22-8.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hy2min/Mincoding/0216/23/23.5-5.py" beforeDir="false" afterPath="$PROJECT_DIR$/hy2min/Mincoding/0216/23/23.5-5.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hy2min/Mincoding/0216/23/23.5-6.py" beforeDir="false" afterPath="$PROJECT_DIR$/hy2min/Mincoding/0216/23/23.5-6.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,31 +32,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.10431_set_line.executor&quot;: &quot;Run&quot;,
-    &quot;Python.1244_switch_onoff.executor&quot;: &quot;Run&quot;,
-    &quot;Python.1288_imsomnia.executor&quot;: &quot;Run&quot;,
-    &quot;Python.15041_Forth.executor&quot;: &quot;Run&quot;,
-    &quot;Python.22-8.executor&quot;: &quot;Run&quot;,
-    &quot;Python.2304_warehouse.executor&quot;: &quot;Run&quot;,
-    &quot;Python.2578_bingo.executor&quot;: &quot;Run&quot;,
-    &quot;Python.3985_roll_cake.executor&quot;: &quot;Run&quot;,
-    &quot;Python.a_bee.executor&quot;: &quot;Run&quot;,
-    &quot;Python.im_solve.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;hy2minBranch&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/SEC/Documents/ssafy_project/feb_study&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.10431_set_line.executor": "Run",
+    "Python.1244_switch_onoff.executor": "Run",
+    "Python.1288_imsomnia.executor": "Run",
+    "Python.15041_Forth.executor": "Run",
+    "Python.22-8.executor": "Run",
+    "Python.23.5-5.executor": "Run",
+    "Python.23.5-6.executor": "Run",
+    "Python.2304_warehouse.executor": "Run",
+    "Python.24-2.executor": "Run",
+    "Python.24-3.executor": "Run",
+    "Python.24-4.executor": "Run",
+    "Python.24-5.executor": "Run",
+    "Python.24-6.executor": "Run",
+    "Python.24-7.executor": "Run",
+    "Python.24-8.executor": "Run",
+    "Python.25-1.executor": "Run",
+    "Python.25-2.executor": "Run",
+    "Python.25-3.executor": "Run",
+    "Python.25-4.executor": "Run",
+    "Python.2578_bingo.executor": "Run",
+    "Python.3985_roll_cake.executor": "Run",
+    "Python.a_bee.executor": "Run",
+    "Python.im_solve.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "hy2minBranch",
+    "last_opened_file_path": "C:/Users/SEC/Documents/ssafy_project/feb_study"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\SEC\Documents\ssafy_project\feb_study\hy2min\SWEA" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.22-8">
-    <configuration name="15041_Forth" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.25-4">
+    <configuration name="24-8" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="feb_study" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -64,11 +78,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hy2min/SWEA/0217" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hy2min/Mincoding/0220/24" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hy2min/SWEA/0217/15041_Forth.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hy2min/Mincoding/0220/24/24-8.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -77,7 +91,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="22-8" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="25-1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="feb_study" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -86,11 +100,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hy2min/Mincoding/0215/22" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hy2min/Mincoding/0220/25" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hy2min/Mincoding/0215/22/22-8.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hy2min/Mincoding/0220/25/25-1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -99,7 +113,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="2304_warehouse" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="25-2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="feb_study" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -108,11 +122,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hy2min/IM" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hy2min/Mincoding/0220/25" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hy2min/IM/2304_warehouse.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hy2min/Mincoding/0220/25/25-2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -121,7 +135,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="a_bee" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="25-3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="feb_study" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -130,11 +144,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hy2min/IM" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hy2min/Mincoding/0220/25" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hy2min/IM/a_bee.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hy2min/Mincoding/0220/25/25-3.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -143,7 +157,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="im_solve" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="25-4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="feb_study" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -152,11 +166,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hy2min" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hy2min/Mincoding/0220/25" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hy2min/im_solve.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hy2min/Mincoding/0220/25/25-4.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -167,11 +181,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.22-8" />
-        <item itemvalue="Python.im_solve" />
-        <item itemvalue="Python.15041_Forth" />
-        <item itemvalue="Python.a_bee" />
-        <item itemvalue="Python.2304_warehouse" />
+        <item itemvalue="Python.25-4" />
+        <item itemvalue="Python.25-3" />
+        <item itemvalue="Python.25-2" />
+        <item itemvalue="Python.25-1" />
+        <item itemvalue="Python.24-8" />
       </list>
     </recent_temporary>
   </component>
