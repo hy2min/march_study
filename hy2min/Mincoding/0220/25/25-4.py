@@ -3,6 +3,7 @@ from collections import deque
 q = deque(input())
 ret = ''
 
+
 while q:
     s = q.popleft()
 
@@ -12,24 +13,26 @@ while q:
             q.popleft()
         continue
 
-    if s == ')':
+    if s ==')':
         ret += s
         while q and q[0] == ')':
             q.popleft()
         continue
-
-    if s == '^' and len(q) >= 2 and q[0] =='^' and q[1] == '^':
-        ret +='^^'
+    
+    if s =='^' and q and len(q)>=2 and q[0] == '^' and q[1] == '^':
+        ret += '^^'
         q.popleft()
         q.popleft()
         continue
-
-    if s == '^' and len(q) >= 2 and q[1] == '^':
+    
+    if s == '^' and q and len(q) >= 2 and q[1] == '^':
         if q[0] not in '_()':
             ret += '^_^'
+            q.popleft()
+            q.popleft()
         else:
             ret += (s + q.popleft() + q.popleft())
+        continue  
+    ret += s
 
-    # ret = q+
-
-print(''.join(ret))
+print(ret)
