@@ -9,4 +9,4 @@ def abc(n):
         abc(n+1)
     
 abc(0)
-print(cnt)    
+print(cnt)
