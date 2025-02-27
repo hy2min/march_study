@@ -31,3 +31,5 @@ for t in range(1,1+t) :
         print(f"#{t} error")
     else:
         print(f"#{t} {stack.pop()}")
+
+        ## 왜안돼
