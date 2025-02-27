@@ -1,22 +1,19 @@
-strings = [input() for _ in range(4)]
-path = []
-Min = 1e8
+from collections import deque
 
+string = [input() for _ in range(4)]
 
-def abc(lev):
-    global Min
-    if lev == len(strings):
-        path.append(strings.pop(Min_w))
-        return
-    for i in range(len(strings)):
-        if Min > len(strings[lev]):
-            Min = len(strings[lev])
-            Min_w = lev
-            abc(lev + 1)
+p = deque()
 
+while True:
+    Min = 1e8
+    Min_string = 'a'
+    if len(p) == 4:
+        break
 
-
-
-
-
-abc(0)
+    for i in range(len(string)):
+        if len(string[i]) < Min:
+            Min = len(string[i])
+            Min_string = i
+    p.append(string.pop(Min_string))
+for i in range(4):
+    print(f'{p[i]}')
