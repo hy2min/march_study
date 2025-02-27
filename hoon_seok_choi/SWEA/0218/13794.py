@@ -32,4 +32,10 @@ for t in range(1,1+t) :
     else:
         print(f"#{t} {stack.pop()}")
 
-        ## 왜안돼
+
+
+
+
+
+
+        ## 왜안돼dd
