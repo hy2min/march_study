@@ -5,26 +5,26 @@ pattern = [
     (-1,0),
     (0,1)
 ]
-mmap = [list(input()) for _ in range(4)]
-
-def dfs(i, j, char):
-    for dx, dy in pattern:
-        new_i, new_j = i+dx, j+dy
-        if new_i < 0 or new_j < 0 or new_i >= 4 or new_j >= 3 or mmap[new_i][new_j] == '#':
-            continue
-        mmap[new_i][new_j] = char
-        mmap[i][j] = '_'
+arr = [list(input()) for _ in range(4)]
 
 
-def moving(char):
-    for i in range(4):
-        for j in range(3):
-            if mmap[i][j] == char:
-                dfs(i, j ,char)
-    return
+def dfs(y,x,idx,char):
+    if idx == 5:
+        return
+    dy = y + pattern[idx][0]
+    dx = x + pattern[idx][1]
+    if 0 <= dy <4 and 0 <= dx < 3:
+        if arr[dy][dx] == "_":
+            arr[dy][dx] = char 
+            arr[y][x] = '_'
+            dfs(dy, dx, idx+1, char)
+    else:
+        dfs(y,x,idx+1,char)
+for i in range(4):
+    for j in range(3):
+        if arr[i][j].isalpha():
+            char = arr[i][j]
+            dfs(i,j,0,char)
 
-for x in ['A','B','C','D']:
-    moving(x)
-
-for row in mmap:
+for row in arr:
     print("".join(row))
