@@ -11,10 +11,25 @@ def cal(lst):
 
 
 def dfs(level):
+    global Min,Max
 
+    if level==5:
+        ret=cal(path)
+        if Min>ret:
+            Min=ret
+
+        if Max<ret:
+            Max=ret
+
+        return
 
     for i in range(5):
         if used[i] == 1 : continue
         path[level]=lst[i]
         used[i] = 1
         dfs(level+1)
+        used[i] = 0
+
+dfs(0)
+print(Max)
+print(Min)
