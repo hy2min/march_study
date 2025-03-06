@@ -336,16 +336,16 @@
 
 # 미로찾기
 # 벽 과 왔던곳 체크하기
-#
-arr=[
-    [0,0,0,0],
-    [1,0,1,0],
-    [1,0,1,0],
-    [0,0,0,0],
-]
-visited=[[0]*4 for _ in range(4)]
-flag=0
-def dfs(y,x):
+# #
+# arr=[
+#     [0,0,0,0],
+#     [1,0,1,0],
+#     [1,0,1,0],
+#     [0,0,0,0],
+# ]
+# visited=[[0]*4 for _ in range(4)]
+# flag=0
+# def dfs(y,x):
 
 # visited=[[0]*4 for _ in range(4)]
 # flag=0
@@ -464,43 +464,43 @@ def dfs(y,x):
 # *7 한 후 %10 한 값으로 바뀐다고 합니다.
 # 총 3번의 개발 후 3*3 사이즈의 땅의가치를 모두 더했을떄
 # 최대 이익은 몇일까요? (중복가능)
-import copy
-arr=[[4,8,1],[9,2,6],[3,5,7]]
-Max=-21e8
-
-def digging(y,x):
-    directy=[0,0,-1,1,0]
-    directx=[1,-1,0,0,0]
-    for i in range(5):
-        dy=directy[i]+y
-        dx=directx[i]+x
-        if dy<0 or dx<0 or dy>2 or dx>2: continue
-        arr[dy][dx]=(arr[dy][dx]*7)%10
-
-def getSum():
-    global arr
-    Sum=0
-    for i in range(3):
-        for j in range(3):
-            Sum+=arr[i][j]
-    return Sum
-
-def dfs(level):
-    global arr,Max
-    backup=copy.deepcopy(arr)
-    if level==3:
-        result=getSum()
-        Max=max(result,Max)
-        return
-
-    for i in range(3):
-        for j in range(3):
-            digging(i,j)
-            dfs(level+1)
-            arr=copy.deepcopy(backup)
-
-dfs(0)
-print(Max)
+# import copy
+# arr=[[4,8,1],[9,2,6],[3,5,7]]
+# Max=-21e8
+#
+# def digging(y,x):
+#     directy=[0,0,-1,1,0]
+#     directx=[1,-1,0,0,0]
+#     for i in range(5):
+#         dy=directy[i]+y
+#         dx=directx[i]+x
+#         if dy<0 or dx<0 or dy>2 or dx>2: continue
+#         arr[dy][dx]=(arr[dy][dx]*7)%10
+#
+# def getSum():
+#     global arr
+#     Sum=0
+#     for i in range(3):
+#         for j in range(3):
+#             Sum+=arr[i][j]
+#     return Sum
+#
+# def dfs(level):
+#     global arr,Max
+#     backup=copy.deepcopy(arr)
+#     if level==3:
+#         result=getSum()
+#         Max=max(result,Max)
+#         return
+#
+#     for i in range(3):
+#         for j in range(3):
+#             digging(i,j)
+#             dfs(level+1)
+#             arr=copy.deepcopy(backup)
+#
+# dfs(0)
+# print(Max)
 
 
 

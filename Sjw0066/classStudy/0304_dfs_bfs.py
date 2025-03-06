@@ -166,58 +166,107 @@
 # print(f'섬개수 {island_cnt}')
 
 # 모의 소방 훈련
-from collections import deque
-N=int(input())
-arr=[list(input()) for _ in range(N)]
-first=list(map(int,input().split()))
+# from collections import deque
+# N=int(input())
+# arr=[list(input()) for _ in range(N)]
+# first=list(map(int,input().split()))
+#
+# direct_y=[0,0,1,-1]
+# direct_x=[1,-1,0,0]
+#
+# def bfs_to_fire_ex(st,ed):
+#     q=deque()
+#     cnt = 1
+#     q.append((st[0],st[1],cnt))
+#     visited=[[0]*N for _ in range(N)]
+#     visited[st[0]][st[1]] = 1
+#     while q:
+#         y,x,level=q.popleft()
+#         for i in range(4):
+#             dy=direct_y[i] + y
+#             dx=direct_x[i] + x
+#             if dy>N-1 or dy<0 or dx>N-1 or dx<0:continue
+#             if visited[dy][dx] == 1 : continue
+#             if arr[dy][dx] == '#' or arr[dy][dx] == '$':continue
+#             if dy==ed[0] and dx==ed[1]:
+#                 return level
+#             visited[dy][dx] = 1
+#             q.append((dy,dx,level+1))
+#
+# def bfs_to_fire(st):
+#     q = deque()
+#     cnt = 1
+#     q.append((st[0], st[1],cnt))
+#     visited = [[0] * N for _ in range(N)]
+#     visited[st[0]][st[1]] = 1
+#     while q:
+#         y, x ,level= q.popleft()
+#         for i in range(4):
+#             dy = direct_y[i] + y
+#             dx = direct_x[i] + x
+#             if dy > N - 1 or dy < 0 or dx > N - 1 or dx < 0: continue
+#             if visited[dy][dx] == 1: continue
+#             if arr[dy][dx] == '#' or arr[dy][dx] == 'A': continue
+#             if arr[dy][dx] == "$":
+#                 return level
+#             visited[dy][dx] = 1
+#             q.append((dy, dx,level+1))
+# Min=21e8
+# answer=0
+# for i in range(N):
+#     for j in range(N):
+#         if arr[i][j] == "A":
+#             answer=bfs_to_fire_ex(first,(i,j)) + bfs_to_fire((i,j))
+#             if Min>answer:
+#                 Min=answer
+# print(Min)
 
-direct_y=[0,0,1,-1]
-direct_x=[1,-1,0,0]
+#a 50
+#b 40
+#c 99
+#d 5
+#e 25
+#f 6
+#g 37
 
-def bfs_to_fire_ex(st,ed):
-    q=deque()
-    cnt = 1
-    q.append((st[0],st[1],cnt))
-    visited=[[0]*N for _ in range(N)]
-    visited[st[0]][st[1]] = 1
-    while q:
-        y,x,level=q.popleft()
-        for i in range(4):
-            dy=direct_y[i] + y
-            dx=direct_x[i] + x
-            if dy>N-1 or dy<0 or dx>N-1 or dx<0:continue
-            if visited[dy][dx] == 1 : continue
-            if arr[dy][dx] == '#' or arr[dy][dx] == '$':continue
-            if dy==ed[0] and dx==ed[1]:
-                return level
-            visited[dy][dx] = 1
-            q.append((dy,dx,level+1))
+# 서바이벌 선수와 전투력이 있을때
+# a~f를 두 팀으로 만들어서 서바이벌 게임을 하고자 한다.
+# 두 팀의 전투력 차이가 가장 적게하여 두 팀을 구성한다고 했을때
+# 두 팀의 최소 전투력 차이는 몇이 되는가?
+# 모든 선수는 서바이벌에 참가하며 1인팀도 가능합니다.
+name='abcdefg'
+power=[50,40,99,5,25,6,37]
+used=[0]*7
 
-def bfs_to_fire(st):
-    q = deque()
-    cnt = 1
-    q.append((st[0], st[1],cnt))
-    visited = [[0] * N for _ in range(N)]
-    visited[st[0]][st[1]] = 1
-    while q:
-        y, x ,level= q.popleft()
-        for i in range(4):
-            dy = direct_y[i] + y
-            dx = direct_x[i] + x
-            if dy > N - 1 or dy < 0 or dx > N - 1 or dx < 0: continue
-            if visited[dy][dx] == 1: continue
-            if arr[dy][dx] == '#' or arr[dy][dx] == 'A': continue
-            if arr[dy][dx] == "$":
-                return level
-            visited[dy][dx] = 1
-            q.append((dy, dx,level+1))
+sum_power=0
+
+for i in range(len(power)):
+    sum_power+=power[i]
+
 Min=21e8
-answer=0
-for i in range(N):
-    for j in range(N):
-        if arr[i][j] == "A":
-            answer=bfs_to_fire_ex(first,(i,j)) + bfs_to_fire((i,j))
-            if Min>answer:
-                Min=answer
+
+def abc(level,Sum,st):
+    global Min
+
+    against=sum_power-Sum
+    gap=abs(Sum-against)
+    Min=min(gap,Min)
+
+    if level==6:
+        return
+
+    for i in range(st,7):
+        if used[i] == 1 : continue
+        used[i] = 1
+        abc(level+1,Sum+power[i],i+1 )
+        used[i] = 0
+
+abc(0,0,0)
 print(Min)
+
+
+
+
+
+
 
