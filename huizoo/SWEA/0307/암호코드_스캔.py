@@ -1,4 +1,6 @@
+from collections import deque
 import sys
+
 sys.stdin = open("input.txt", "r")
 
 PASSWORD = [
@@ -14,6 +16,7 @@ PASSWORD = [
     [3, 1, 1, 2],
 ]
 
+
 def abc():
     global multi, bin_pw
     rate = [0, 0, 0, 0]
@@ -28,17 +31,16 @@ def abc():
                 rate[1] += 1
             else:
                 rate[3] += 1
-    # print(bin_pw)
     if sum(rate) != 7:
         for i in range(4):
             rate[i] //= multi
     if rate in PASSWORD:
         real_pw = PASSWORD.index(rate)
         real_pws.append(real_pw)
-        bin_pw = ''
+        bin_pw.clear()
     else:
         multi += 1
-    # print(rate)
+
 
 def bbq():
     global real_pws
@@ -47,88 +49,75 @@ def bbq():
         if i % 2 == 0:
             Sum += real_pws[i]
         else:
-            Sum += 3*real_pws[i]
+            Sum += 3 * real_pws[i]
     if Sum % 10 == 0:
         return sum(real_pws)
     else:
         return 0
 
+
 T = int(input())
-for tc in range(1, T+1):
-    if tc == 8:
-        debug = 1
-    if tc == 13:
-        debug = 1
+for tc in range(1, T + 1):
     N, M = map(int, input().split())
-    arr = [input() for _ in range(N)]
+    arr = []
+    for _ in range(N):
+        line = input().strip()
+        if line.strip('0'):
+            arr.append(line)
+
     checked = []
     pws = []
     ans = 0
-    for i in range(N):
-        temp = arr[i].strip('0')
+    for s in arr:
+        temp = s.strip('0')
         if temp and temp not in pws:
             pws.append(temp)
-    # pws2 = []
-    # for pw in pws:
-    #     exist = 0
-    #     for pw2 in pws2:
-    #         if pw2 in pw:
-    #             exist = 1
-    #             continue
-    #     if exist:
-    #         continue
-    #     else:
-    #         pws2.append(pw)
 
+    pws.sort(key=len)
+    for _ in range(2):
+        for i in range(len(pws)):
+            for j in range(len(pws)):
+                if i != j:
+                    if pws[i] in pws[j]:
+                        pws[j] = pws[j].replace(pws[i], '')
+                        pws[j] = pws[j].strip('0')
+                    elif pws[j] in pws[i]:
+                        pws[i] = pws[i].replace(pws[j], '')
+                        pws[i] = pws[i].strip('0')
 
     for pw in pws:
-        print(f'길이 :{len(pw)}')
+        if not pw:
+            continue
         real_pws = []
         num = int(pw, 16)
-        # print(bin(num))
         flag = 0
-        bin_pw = ''
-        # print(f'num : {num}')
+        bin_pw = deque()
         multi = 1
         while num:
-            if bin_pw == '0':
-                bin_pw = ''
             check = num & 0x1
+            num >>= 1
             if not flag:
-                if check == 0:
-                    num = num >> 1
                 if check == 1:
                     flag = 1
-                    bin_pw = '1' + bin_pw
-                    num = num >> 1
+                    bin_pw = deque(['1'])
             else:
                 if check == 1:
-                    bin_pw = '1' + bin_pw
-                    num = num >> 1
+                    bin_pw.appendleft('1')
                 else:
-                    bin_pw = '0' + bin_pw
-                    num = num >> 1
+                    bin_pw.appendleft('0')
 
-            if len(bin_pw) % (7*multi) == 0:
-                if not bin_pw: continue
+            if len(bin_pw) % (7 * multi) == 0:
+                if not bin_pw:
+                    continue
                 abc()
-                if len(real_pws) == 8 and real_pws not in checked:
-                    checked.append(real_pws)
-                    ans += bbq()
 
-                # print(bin(num))
         if bin_pw and len(bin_pw) % 7 != 0:
-            bin_pw = (7*multi - len(bin_pw))*'0' + bin_pw
+            needed = (7 * multi) - len(bin_pw)
+            for _ in range(needed):
+                bin_pw.appendleft('0')
             if real_pws not in checked:
+                checked.append(real_pws)
                 abc()
                 ans += bbq()
-        # print(bin_pw)
-        # print(real_pws)
-        # print(f'현재답 {ans}')
+
     print(f'#{tc} {ans}')
-
-
-
-
-
-
