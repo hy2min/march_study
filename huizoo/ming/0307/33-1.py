@@ -9,11 +9,11 @@ for _ in range(n):
 visited = [0]*4
 flag = 0
 
-def dfs(v, parent, visited, graph):
+def dfs(v, parent):
     visited[v] = 1
-    for nv in graph[v]:
+    for nv in arr[v]:
         if not visited[nv]:
-            if dfs(nv, v, visited, graph):
+            if dfs(nv, v):
                 return 1
         elif nv != parent:
             return 1
@@ -21,7 +21,7 @@ def dfs(v, parent, visited, graph):
 
 for i in range(4):
     if not visited[i]:
-        if dfs(i, -1, visited, arr):
+        if dfs(i, -1):
             flag = 1
             break
 
