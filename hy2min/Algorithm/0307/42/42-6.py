@@ -1,26 +1,26 @@
-def dfs(level,sm):
-    global mn, best_path
+def dfs(level, Sum):
+    global mn,best_path
+
     if level == m:
-        if mn > sm:
-            mn = sm
+        if mn > Sum:
+            mn = Sum
             best_path = path[:]
-        return
+            return
     for i in range(n):
         if visited[i] == 0:
             visited[i] = 1
-            path[level] = arr[i]
-            dfs(level+1,sm*arr[i])
+            path.append(arr[i])
+            dfs(level+1, Sum * arr[i])
+            path.pop()
             visited[i] = 0
 
-n, m = map(int,input().split())
-arr = list(map(int, input().split()))
 
+n, m = map(int, input().split())
+arr = list(map(int,input().split()))
+path = []
+best_path = []
+visited = [0] * n
 mn = 21e8
 
-path = [0] * m
-visited = [0] * n
-best_path = []
-
-dfs(0,1)
-path.sort()
-print(*path)
+dfs(0,1) # level, sum
+print(*sorted(best_path))
