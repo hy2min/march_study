@@ -2,14 +2,19 @@ T=int(input())
 
 for tc in range(1,T+1):
     N,str1=map(str,input().split())
+    hex_num='0123456789ABCDEF'
     answer=''
-    for i in str1:
-        temp=int(i,16)
-        binary_temp=str(bin(temp)[2:])
+    for i in range(len(str1)):
+        for j in range(16):
+            if hex_num[j]==str1[i]:
+                n=j
+                binary_temp = ''
+                while n:
 
-        if binary_temp[0] == 1:
-            answer += '0'
-            answer += binary_temp
-        else:
-            answer += binary_temp
-    print(answer)
+                    binary_temp=str(n%2)+binary_temp
+                    n=n//2
+                answer+=binary_temp.zfill(4)
+    print(f'#{tc} {answer}')
+
+
+
