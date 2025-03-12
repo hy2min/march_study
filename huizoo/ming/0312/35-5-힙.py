@@ -1,29 +1,23 @@
 import heapq
 
-def ugly_numbers(n):
-    heap = []
-    heapq.heappush(heap, 1)
-    seen = {1}
-    primes = [2, 3, 5]
-    ugly = []
-
-    while len(ugly) < n:
-        num = heapq.heappop(heap)
-        ugly.append(num)
-
-        for prime in primes:
-            new_num = num * prime
-            if new_num not in seen:
-                heapq.heappush(heap, new_num)
-                seen.add(new_num)
-
-    return ugly
-
-n = int(input())
+Q = int(input())
 arr = list(map(int, input().split()))
+N = max(arr)
 
-max_n = max(arr)
-ugly_list = ugly_numbers(max_n)
+heap = [1]
+seen = {1}
+num = (2, 3, 5)
+ugly = []
+
+for _ in range(N):
+    num = heapq.heappop(heap)
+    ugly.append(num)
+
+    for k in (2, 3, 5):
+        nxt = num * k
+        if nxt not in seen:
+            seen.add(nxt)
+            heapq.heappush(heap, nxt)
 
 for i in arr:
-    print(ugly_list[i-1], end=' ')
+    print(ugly[i-1], end=' ')

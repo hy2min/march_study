@@ -11,8 +11,7 @@ for tc in range(1, t+1):
            Max = max(Max, int(''.join(arr)))
            return
         for i in range(n):
-            for j in range(n):
-                if i == j:continue
+            for j in range(i+1, n):
                 arr[i], arr[j] = arr[j], arr[i]
                 if (''.join(arr), level) in checked:
                     arr[i], arr[j] = arr[j], arr[i]
