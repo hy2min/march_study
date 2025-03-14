@@ -1,13 +1,14 @@
-def dfs(level, Sum):
-    if level >= n+1:
-        max_sum = max(max_sum,Sum)
-        return
-    for i in [2,7]:
-        if level+i < n+1:
-            dfs(level+i, Sum+arr[level+i])
-
 n = int(input())
-arr = [0]+list(map(int,input().split()))+[0]
-max_sum = -21e8
-dfs(0,0)
-print(max_sum)
+inf = -21e8
+arr = [0] + list(map(int,input().split())) + [0]*7
+dp = [[inf] * 2 for _ in range(len(arr))]
+dp[1] = [0,inf]
+dp[2] = [arr[2],inf]
+for i in range(2, len(arr)):
+    dp[i][0] = max(dp[i-2]) + arr[i]
+    if i >= 7:
+        dp[i][1] = max(dp[i-7]) + arr[i]
+
+print(*dp)
+print(max(dp[n:]))
+
