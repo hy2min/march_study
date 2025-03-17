@@ -1,10 +1,5 @@
-n = int(input())
+n = 5
 
-def recur(n):
-    if n == 0:
-        return
-    
-    recur(n // 2)
-    print(n,end=" ")
+q = bin(n)[2:]
 
-recur(n)
+print(q)
