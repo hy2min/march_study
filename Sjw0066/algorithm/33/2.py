@@ -1,31 +1,25 @@
-def union(a,b):
-    global arr,flag
-
-    bossA,bossB=findboss(a),findboss(b)
-
-    if bossA==bossB:
-        flag=1
-        return
-
-    arr[ord(bossB)]=bossA
-
-def findboss(member):
-
-    if arr[ord(member)] == 0:
-        return member
-
-    ret = findboss(arr[ord(member)])
-    arr[ord(member)] = ret
-    return ret
+arr=[
+    ['A','B','C'],
+    ['D','E','F'],
+    ['H','G'],
+    ['I','J'],
+]
 
 N=int(input())
-flag=0
-arr=[0]*100
-for _ in range(N):
-    a1,b1=input().split()
-    union(a1,b1)
 
-if flag:
-    print('발견')
-else:
-    print('미발견')
+for i in range(N):
+    ain=0
+    bin=0
+    a,b=input().split()
+    for j in range(len(arr)):
+        if a in arr[j]:
+            ain=j
+        if b in arr[j]:
+            bin=j
+
+    if  ain != bin:
+        arr[ain]+=arr[bin]
+        arr.pop(bin)
+
+print(f'{len(arr)}개')
+
