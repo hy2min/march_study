@@ -39,5 +39,5 @@ while heap:
             result[last] = new
             heapq.heappush(heap,(new, last))
 
-print(result[end]
+print(result[end])
 
