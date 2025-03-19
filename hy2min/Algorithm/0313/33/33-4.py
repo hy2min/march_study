@@ -1,29 +1,44 @@
-arr = [0]*10
-def find_boss(n):
-    if arr[n] == 0:
-        return n
-    ret = find_boss(arr[n])
-    arr[n] = ret
+arr = [0] * 10
+
+def findboss(member):
+    if isinstance(arr[member], str):  # 루트가 문자열이면 그대로 반환
+        return arr[member]
+
+    if arr[member] == member:
+        return member
+
+    ret = findboss(arr[member])
+    arr[member] = ret
     return ret
 
+
+
 def union(a, b):
-    boss_a, boss_b = find_boss(a), find_boss(b)
+    bossa, bossb = findboss(a), findboss(b)
+    if findboss(a) == findboss(b):
+        return
+    if isinstance(bossa, int):
+        arr[bossa] = bossb
+    if isinstance(bossb, int):
+        arr[bossb] = bossa
+    else:
+        arr[bossb] = bossa
 
-    if boss_a == boss_b:
-        return False
-
-    if boss_a.isdigit() and boss_b.isdigit():
-        arr[boss_b] = boss_a
-    elif boss_a.isalpha():
-        arr[boss_b] = boss_a
-    elif boss_b.isalpha():
-        arr[boss_a] = boss_b
-
-    return True
 
 n, k = map(int, input().split())
+
 for _ in range(n):
     a, b = input().split()
-    a = int(a) if a.isdigit() else a
-    b = int(b) if b.isdigit() else b
+    # if a.isdigit() and b.isdigit():
+    #     union(int(a), int(b))
+    # else:
+    if a.isdigit():
+        a = int(a)
+
+    if b.isdigit():
+        b = int(b)
+
     union(a, b)
+
+for i in range(1, k+1):
+    print(arr[i], end="")
