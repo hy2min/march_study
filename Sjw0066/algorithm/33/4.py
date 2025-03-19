@@ -1,21 +1,46 @@
 N,K=map(int,input().split())
-lst=[[] for _ in range(K+1)]
-name=['']*(K+1)
+name=[0]*(K+1)
+arr=[[] for _ in range(K+1)]
+boss=[-1]*(K+1)
+
+def union(a,b):
+
+    bossA,bossB=findboss(a),findboss(b)
+
+    if bossA==bossB:
+        return
+
+    boss[b]=bossA
+
+def findboss(member):
+
+    if boss[member] == -1:
+        return member
+    ret = findboss(boss[member])
+    boss[member] = ret
+    return ret
+
+
 for i in range(N):
-    # a랑 b가 둘다 숫자면 그룹묶기
-    # a랑 b가 글자가 하나 있으면 그놈을 등급으로 매기기
     a,b=input().split()
-
-
     if a.isdecimal() and b.isdecimal():
-        lst[int(a)].append(int(b))
-        lst[int(b)].append(int(a))
+        arr[int(a)].append(int(b))
+        union(int(a),int(b))
     else:
-        if a.isalpha():
-            name[int(b)] = a
+        if a.isdecimal():
+            name[int(a)]=b
         else:
-            name[int(a)] = b
+            name[int(b)]=a
 
+flag=1
+while flag:
+    flag=0
+    for i in range(1,len(name)):
+        if not name[i]:
+            flag=1
+            name[i] = name[boss[i]]
 
+name.pop(0)
+print(*name,sep="")
 
 
