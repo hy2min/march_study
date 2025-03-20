@@ -1,20 +1,18 @@
-def dfs(t, cnt):
-    global min_cnt
-    
-    if t <0 or cnt > min_cnt:
-        return
-    if t == 0:
-        min_cnt = min(min_cnt,cnt)
-        return
-    
-
-    for i in arr:
-        dfs(t - i, cnt + 1)
-
 t, n = map(int, input().split())
-arr = list(map(int, input().split()))
-min_cnt = 21e8
-dfs(t,0)
-print(min_cnt)
+coins = list(map(int, input().split()))
+coins.sort()
 
-    # DP로 풀어야 함
+inf = 21e8
+dp = [inf] * (t+1)
+
+for coin in coins:
+    for i in range(coin, t+1):
+        if i % coin == 0:
+            dp[i] = i // coin
+        else:
+            if i // coin != 0:
+                dp[i] = min(dp[i], i//coin + dp[i % coin])
+if dp[-1] == inf:
+    print('impossible')
+else:
+    print(dp[-1])
