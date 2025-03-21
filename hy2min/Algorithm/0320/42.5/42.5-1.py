@@ -1,14 +1,34 @@
-d_y = [-1,1,0,0]
-d_x = [0,0,-1,1]
+def dfs(row):
+    global mx_score
+
+    if row == n:
+        score = col_sum(arr)
+        if mx_score < score:
+            mx_score = score
+        return
+
+    for k in range(n):
+        rotate(row,k)
+        dfs(row+1)
 
 
-def dfs(y, x):
-    
 
+def rotate(row, k):
+    k = k % n
+    arr[row] = arr[row][-k:] + arr[row][:-k]
+    return
 
-arr = [list(input()) for _ in range(4)]
+def col_sum(arr):
+    score = 1
+    for j in range(n):
+        column = 0
+        for i in range(n):
+            column += arr[i][j]
+        score *= column
+    return score
 
-for i in range(4):
-    for j in range(4):
-        if arr[i][j].isalpha():
-            dfs(i,j)
+n = int(input())
+arr = [list(map(int, input().split())) for _ in range(n)]
+mx_score = -21e8
+dfs(0)
+print(f'{mx_score}점')
