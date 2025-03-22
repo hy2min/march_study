@@ -1,5 +1,5 @@
 # 사회망 서비스(SNS)
-import sys, copy
+import sys
 input = sys.stdin.readline
 
 
@@ -10,30 +10,16 @@ for _ in range(N-1):
     arr[a].append(b)
     arr[b].append(a)
 
-visit = set()
-Min = 1e9
+def dfs(node, parent, is_early_adopter):
+    cnt = 1 if is_early_adopter else 0
 
-def abc(now, level, visited):
-    global Min
-    if level > Min:
-        return
-    visited2 = copy.deepcopy(visited)
-    for nxt in arr[now]:
-        visited2.add(nxt)
+    for child in arr[node]:
+        if child != parent:
+            if is_early_adopter:
+                cnt += min(dfs(child, node, True), dfs(child, node, False))
+            else:
+                cnt += dfs(child, node, True)
 
-    if len(visited2) == N:
-        Min = min(Min, level)
-        return
+    return cnt
 
-    for i in range(1, N+1):
-        if i not in visited2:
-            visited3 = copy.deepcopy(visited2)
-            visited3.add(i)
-            abc(i, level+1, visited3)
-
-for i in range(1, N+1):
-    visit.add(i)
-    abc(i, 1, visit)
-    visit.remove(i)
-
-print(Min)
+print(min(dfs(1, 0, True), dfs(1, 0, False)))
