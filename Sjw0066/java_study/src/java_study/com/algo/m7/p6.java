@@ -1,27 +1,31 @@
-package java_study.com.algo.m3;
+package java_study.com.algo.m7;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
 
-public class p3 {
-
+public class p6{
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		int a= Integer.parseInt(br.readLine());
+		StringTokenizer st = new StringTokenizer(br.readLine());
 		
-		if (a==5 || a==10) {
-			bw.write("만세");
-		}else {
-			bw.write("재도전");
+		for (int i =0;i<4;i++) {
+			int a= Integer.parseInt(st.nextToken());
+			if (a<20) {
+				bw.write("더 큰수를 입력하세요\n");
+			}else if (a>20) {
+				bw.write("더 작은수를 입력하세요\n");
+			}else {
+				bw.write("정답입니다\n");
+			}
 		}
 		
-		br.close();
 		bw.close();
-		
+		br.close();
+				
 	}
-
 }

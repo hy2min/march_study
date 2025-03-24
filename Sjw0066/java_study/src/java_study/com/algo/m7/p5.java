@@ -1,4 +1,4 @@
-package java_study.com.algo.m3;
+package java_study.com.algo.m7;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -6,22 +6,25 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-public class p3 {
-
+public class p5{
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		int a= Integer.parseInt(br.readLine());
 		
-		if (a==5 || a==10) {
-			bw.write("만세");
+		if (a>=80) {
+			bw.write("수");
+		}else if(a>=70) {
+			bw.write("우");
+		}else if(a>=60) {
+			bw.write("미");
 		}else {
-			bw.write("재도전");
+			bw.write("재시도");
 		}
+				
 		
-		br.close();
 		bw.close();
-		
+		br.close();
+				
 	}
-
 }

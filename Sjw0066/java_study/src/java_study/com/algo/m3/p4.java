@@ -5,23 +5,27 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
 
-public class p3 {
+public class p4 {
 
-	public static void main(String[] args) throws IOException{
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		int a= Integer.parseInt(br.readLine());
+		StringTokenizer st= new StringTokenizer(br.readLine());
 		
-		if (a==5 || a==10) {
-			bw.write("만세");
+		int a = Integer.parseInt(st.nextToken());
+		int b = Integer.parseInt(st.nextToken());
+		
+		if (a==7 && b==9) {
+			bw.write("인증됨");
+			
 		}else {
-			bw.write("재도전");
+			bw.write("재시도");
 		}
 		
-		br.close();
 		bw.close();
-		
+		br.close();
 	}
 
 }
