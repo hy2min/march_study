@@ -1,31 +1,30 @@
 # 다빈치 타워
-import sys, copy
+import sys
 input = sys.stdin.readline
 
 N, M = map(int, input().split())
 tower = [list(map(int, input().split())) for _ in range(N)]
+Max = -1e9
 
-Max = -21e8
-def dfs(x, lst):
+def dfs(x, rotate):
     global Max
     if x == N:
-        value = 1
+        mul = 1
         for j in range(M):
-            Sum = []
+            seen = set()
             for i in range(N):
-                if lst[i][j] not in Sum:
-                    Sum.append(lst[i][j])
-                else:
+                val = tower[i][(j + rotate[i]) % M]
+                if val in seen:
                     return
-            value *= sum(Sum)
-        Max = max(Max, value)
+                seen.add(val)
+            mul *= sum(seen)
+        Max = max(Max, mul)
         return
 
     for i in range(M):
-        lst2 = copy.deepcopy(lst)
-        lst2[x] = lst[x][i:] + lst[x][:i]
-        dfs(x+1, lst2)
+        rotate[x] = i
+        dfs(x+1, rotate)
 
 
-dfs(0, tower)
+dfs(0, [0]*N)
 print(Max)
