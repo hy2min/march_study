@@ -26,7 +26,7 @@ def bfs2(y, x):
         for dy, dx in d:
             ny, nx = yy + dy, xx + dx
             if ny < 0 or nx < 0 or ny >= 8 or nx >= 9: continue
-            if visited2[ny][nx] == -2 and arr[ny][nx] == '#': return visited2[yy][xx] + 1
+            if visited2[ny][nx] == -2 and arr[ny][nx] == '#': return visited2[yy][xx]
             if visited2[ny][nx] == -1 and arr[ny][nx] != '#':
                 visited2[ny][nx] = visited2[yy][xx] + 1
                 q.append((ny, nx))
