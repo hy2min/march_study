@@ -39,3 +39,9 @@ for t in range(1,1+t) :
 
 
         ## 왜안돼dd
+
+
+
+
+
+sdfsfsdfjipfsajiofsd;ajsfda``   1qqqw
