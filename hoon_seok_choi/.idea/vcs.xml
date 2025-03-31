@@ -2,7 +2,14 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Mincoding/0329/django_ws_2_1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Mincoding/0329/django_ws_2_2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Mincoding/0329/django_ws_2_3" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Mincoding/0330/django_ws_3_1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Mincoding/0330/django_ws_3_2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Mincoding/0330/django_ws_3_3" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/SWEA/0225/web_hw_2_4" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/SWEA/0326/django_hw_2_2" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/python_hw_8_4" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/web_hw_2_4" vcs="Git" />
   </component>
