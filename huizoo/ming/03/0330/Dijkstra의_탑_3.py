@@ -2,8 +2,6 @@
 import heapq, sys
 input = sys.stdin.readline
 
-N, M = map(int, input().split())
-arr = [list(map(int, input().split())) for _ in range(N)]
 def dijkstra():
     d = [(0, 1), (1, 0), (0, -1), (-1, 0)]
     heap = [(arr[0][0], 0, 0)]
@@ -20,4 +18,7 @@ def dijkstra():
                 visited[ny][nx] = w+arr[ny][nx]
                 heapq.heappush(heap, (w+arr[ny][nx], ny, nx))
 
+
+N, M = map(int, input().split())
+arr = [list(map(int, input().split())) for _ in range(N)]
 print(dijkstra())
