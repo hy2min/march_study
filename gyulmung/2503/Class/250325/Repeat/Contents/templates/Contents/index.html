@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+  <h1> 안녕하세요 </h1>
+  <p> 저의 이름은 {{context.name|upper}}입니다.</p>
+  <p>저의 나이는 {{context.age|add:2}}입니다.</p>
+
+  {% if context.age == 21 %}
+    <p>나는 너가 부럽지 않아</p>
+  {% endif %}
+
+  <p>내가 좋아하는 색은</p>
+  {% for  color in context.color  %}
+  <li>{{color}}</li>  
+  {% endfor %}
+  <p>입니다.</p>
+  <a href="{% url "pages:index" context.name %}">pages로 넘어가요</a>
+
+  <h1>Throw</h1>
+  <form action="{% url "pages:index" context.name %}" method = 'GET'>
+    <label for="minho">Throw를 연습하자</label>
+    <input type="text" id = "minho" name = "msg">
+    <input type="submit">
+  </form>
+
+{% endblock content %}
