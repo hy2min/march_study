@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Don't think, Just do it</title>
+  </head>
+  <body>
+    <a href="{% url 'todos:index' %}">[Main]</a>
+    <a href="{% url 'todos:create_todo' %}">[Create]</a>
+    <a href="{% url 'accounts:login' %}">[Login]</a>
+
+    {% block content %}
+
+    {% endblock %}
+  </body>
+</html>

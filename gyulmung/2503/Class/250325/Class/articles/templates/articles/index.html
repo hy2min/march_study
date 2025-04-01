@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content  %}
+
+<h1>Fighting {{context.name|lower}}</h1>
+<h2>나이: {{context.age|add:2}}</h2>
+{% for color in context.color %}
+  <li>{{color}}</li>
+{% endfor %}
+
+<a href="{% url "pages:index" context.name %}">pages</a>
+
+<h1>Throw 연습하기</h1>
+<form action="{% url "pages:index" context.name %}" method='GET'> 
+
+  <label for="minho"> Throw를 연습하자</label>
+  <input type="text" id = 'minho' name='msg'>
+  <input type="submit">
+</form>
+
+
+{% endblock content  %}

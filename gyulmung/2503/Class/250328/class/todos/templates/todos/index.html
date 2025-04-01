@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>전체 할 일 목록</h1>
+
+  <ul>
+    {% for todo in works %}
+      <li>
+        <a href="{% url "todos:pages" todo.pk %}">{{ todo.work }}</a>
+        <p>완료여부: {{ todo.is_completed }}</p>
+      </li>
+    {% empty %}
+      <li>아직 등록 된 할 일이 없습니다.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
