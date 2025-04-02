@@ -1,0 +1,50 @@
+1. 가상환경 만들기
+python -m venv 가상환경 이름
+
+2. activate 하기
+source 경로/Scripts/activate
+
+3. django 설치
+pip install django
+
+4. requirements.txt 생성
+pip freeze > requirements.txt
+(불러올 때는)
+pip install -r requirements.txt
+
+5. project 생성
+django-admin startproject 이름 경로(보통 . 찍음) (경로에 manage.py가 생김)
+
+6. 앱 생성
+python manage.py startapp 이름
+
+7. settings.py 앱 등록
+INSTALLED_APPS 의 맨 위에
+
+8. urls.py 들어가서 경로 설정
+from 앱이름 import views
+path('앱이름/', views.함수)
+
+9. views.py 들어가서 함수 정의
+첫 매개변수는 request
+return render(request, '앱이름/OO.html')
+
+10. templates > 앱 이름 > html 문서 만들기
+
+11. 서버 실행
+python manage.py runserver
+
+
+
+디자인 패턴!!! -> 장고는 MTV(model, template, view) (models.py, templates.py, views.py)
+개발자들이 자주 사용하는 기능들은
+많은 시행착오 끝에 문제점이 반복적으로 발생한다는 것을 알고
+문제점을 최소화 하기 위해서 자주 사용되는 소프트 웨어 구조를
+마치, 건축 공법처럼 구조를 일반화 시켜놓은 것을 소프트웨어 디자인 패턴이라고 한다.
+
+참고 MTV 패턴이란?
+model : 데이터와 관련된 로직을 관리 (회원가입 시 아이디 비번 이메일 등 정보를 관리)
+template : 레이아웃 화면 구성을 한 후에 응답 처리 (랜더링하면 화면에 나오는 부분)
+view : model과 template 사이에 로직을 처리하여 응답을 반환하는 부분
+
+
