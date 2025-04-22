@@ -53,9 +53,6 @@ public class p3 {
 				}//end if	
 			}//end for
 			
-			preorder();
-			inorder();
-			postorder();
 			
 			br.close();
 			bw.close();
