@@ -1,31 +1,42 @@
 #include <iostream>
 using namespace std;
 
+void KFC(char *st, int *up, int *low)
+{
+	for (int x = 0; x < 11; x++) {
+		char i = st[x];
+		if ( i == '\0') {
+			return;
+		}
+		else if (i >= 'a' && i <= 'z') {
+			(*low)++;
+		}
+		else if (i >= 'A' && i <= 'Z') {
+			(*up)++;
+		}
+	}
+
+
+}
+
+
 int main()
 {
-	char st[100];
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+
+	char st[11];
 	cin >> st;
-	char last;
-	int n;
-	for (int x = 0; x < 100; x++) {
-		if (st[x] == '\0') {
-			last = st[x-1];
-			n = x;
-			break;
-		}
-	}
-	int cnt = 0;
-	for (int x = 0; x < n; x++) {
-		if (st[x] == last) {
-			cnt += 1;
-		}
-	}
-	cout << n << endl << cnt;
-
-
-
+	int up, low;
+	up = 0; low = 0;
+	KFC(st, &up, &low);
+	cout << "대문자" << up << "개\n";
+	cout << "소문자" << low << "개";
 
 	return 0;
 }
 
-// 12.5에 6은 풀었지만 12.4, 12.5는 아직 안풀었음 풀어야함
+
+
+
+// 13-5 까지 했음
