@@ -87,8 +87,8 @@
 #             dfs(i)
 #
 # dfs(0)
-
-#인접 리스트 버전
+#
+# 인접 리스트 버전
 # n,m=map(int,input().split())
 # arr=[[] for _ in range(6)]
 # for i in range(m):
