@@ -1,2 +1,4 @@
 ﻿  소스.cpp
-  0422.vcxproj -> C:\Users\SSAFY\Desktop\study\march_study\huizoo\ming\04\0422\Debug\0422.exe
+c:\users\user\desktop\study\feb_study\huizoo\ming\04\0422\0422\소스.cpp(34): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\user\desktop\study\feb_study\huizoo\ming\04\0422\0422\소스.cpp(60): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  0422.vcxproj -> C:\Users\USER\Desktop\study\feb_study\huizoo\ming\04\0422\Debug\0422.exe
