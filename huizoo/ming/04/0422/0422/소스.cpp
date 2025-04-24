@@ -1,42 +1,33 @@
 #include <iostream>
 using namespace std;
 
-void KFC(char *st, int *up, int *low)
+
+void CompareGo(int *arr, int *arr2)
 {
-	for (int x = 0; x < 11; x++) {
-		char i = st[x];
-		if ( i == '\0') {
+	for (int x = 0; x < 5; x++) {
+		if (arr[x] != arr2[x]) {
+			cout << "두배열은같지않음";
 			return;
-		}
-		else if (i >= 'a' && i <= 'z') {
-			(*low)++;
-		}
-		else if (i >= 'A' && i <= 'Z') {
-			(*up)++;
 		}
 	}
 
+	cout << "두배열은완전같음";
+
 
 }
+
 
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(nullptr);
-
-	char st[11];
-	cin >> st;
-	int up, low;
-	up = 0; low = 0;
-	KFC(st, &up, &low);
-	cout << "대문자" << up << "개\n";
-	cout << "소문자" << low << "개";
+	int arr[5] = { 3,5,1,2,7 };
+	int arr2[5] = { 0 };
+	for (int x = 0; x < 5; x++) {
+		cin >> arr2[x];
+	}
+	CompareGo(arr, arr2);
 
 	return 0;
 }
 
-
-
-
-// 13-5 까지 했음
+// 13.5-1부터 하면됨
