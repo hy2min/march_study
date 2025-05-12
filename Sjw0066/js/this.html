@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    const person = {
+      name : "kevin",
+      age: 40,
+      greeting : function(){
+        console.log(`안녕하세요. 저는 ${this.name} 입니다.`);
+        
+      }
+    }
+
+    {name:'kim'};
+
+    const person2 = {
+      name : "kevin",
+      age: 40,
+      greeting :()=>{
+        console.log(this.name);
+      }
+    }
+    person2.greeting();
+
+    const products=[
+      {name:"cucumber",type:"vegetable"},
+      {name:"banana",type:"fruit"},
+      {name:"carrot",type:"vegetable"},
+      {name:"apple",type:"fruit"},
+    ]
+
+    console.log(products.filter(product=>product.type === "fruit"));
+    
+  </script>
+</body>
+</html>
