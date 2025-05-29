@@ -1,0 +1,4 @@
+﻿  소스.cpp
+c:\users\ssafy\desktop\march_study\huizoo\ming\04\project1\project1\소스.cpp(13): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\ssafy\desktop\march_study\huizoo\ming\04\project1\project1\소스.cpp(14): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Project1.vcxproj -> C:\Users\SSAFY\Desktop\march_study\huizoo\ming\04\Project1\Debug\Project1.exe
